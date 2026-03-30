@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import SpecialSection from "@/components/SpecialSection";
 import FooterSection from "@/components/FooterSection";
 import AboutSection from "@/components/AboutSection";
+import Drawer from "@/components/Drawer";
 
 
 export default function Home() {
@@ -13,13 +14,14 @@ export default function Home() {
       <main className="max-w-384 w-full mx-auto">
 
         <header className="min-h-screen h-fit">
+          <Drawer />
           <Navbar />
           <HeroSection />
         </header>
 
         <SpecialSection />
         <Menu />
-        <DiningEvent />
+        {/* <DiningEvent /> */}
         <AboutSection />
 
         <footer className="min-h-screen h-fit relative">

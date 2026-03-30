@@ -1,21 +1,27 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonUi from './ui/ButtonUi'
+import { Menu } from 'lucide-react'
+import { ContextProvider } from '@/app/context/DrawerContext'
 
 const Navbar = () => {
+
+    const { toggleDrawer } = useContext(ContextProvider)
+
     const navLinks = [
         { name: "Menu", href: "/menu" },
         { name: "About", href: "/about" },
         { name: "Contact", href: "/contact" },
     ]
     return (
-        <nav className="flex items-center justify-between py-4 px-20 bg-transparent relative z-50">
+        <nav className="flex items-center justify-between py-4 px-10 lg:px-20 bg-transparent relative z-50">
 
             <div className="logo">
                 <img src="../assets/logo.png" alt="DMR SUSHI" className='w-12' />
             </div>
 
-            <ul className='flex gap-7 items-center justify-center font-heading text-lg text-white'>
+            <ul className='flex gap-7 items-center justify-center font-heading text-lg text-white max-lg:hidden'>
                 {navLinks.map((item) => (
                     <li key={item.name}>
                         <Link href={item.href} className='relative group py-1'>
@@ -25,7 +31,14 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
-            <ButtonUi text={'Reservation'} />
+
+            <span className='max-lg:hidden'>
+                <ButtonUi text={'Reservation'} />
+            </span>
+
+            <button className='lg:hidden text-primary '>
+                <Menu size={30} />
+            </button>
         </nav>
     )
 }
