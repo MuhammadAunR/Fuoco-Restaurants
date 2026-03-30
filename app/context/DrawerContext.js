@@ -1,7 +1,9 @@
 'use client'
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
 export const ContextProvider = createContext()
+
+export const useDrawer = () => useContext(ContextProvider)
 
 const DrawerContext = ({ children }) => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)

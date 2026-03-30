@@ -1,13 +1,13 @@
 'use client'
 import Link from 'next/link'
-import React, { useContext } from 'react'
+import React from 'react'
 import ButtonUi from './ui/ButtonUi'
 import { Menu } from 'lucide-react'
-import { ContextProvider } from '@/app/context/DrawerContext'
+import { useDrawer } from '@/app/context/DrawerContext'
 
 const Navbar = () => {
 
-    const { toggleDrawer } = useContext(ContextProvider)
+    const { toggleDrawer } = useDrawer()
 
     const navLinks = [
         { name: "Menu", href: "/menu" },
@@ -36,7 +36,7 @@ const Navbar = () => {
                 <ButtonUi text={'Reservation'} />
             </span>
 
-            <button className='lg:hidden text-primary '>
+            <button onClick={toggleDrawer} className='lg:hidden text-primary '>
                 <Menu size={30} />
             </button>
         </nav>

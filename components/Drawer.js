@@ -1,12 +1,12 @@
 'use client'
-import { ContextProvider } from '@/app/context/DrawerContext'
+import { useDrawer } from '@/app/context/DrawerContext'
 import { PanelTopClose } from 'lucide-react'
 import Link from 'next/link'
-import React, { useContext } from 'react'
+import React  from 'react'
 
 const Drawer = () => {
 
-    const { toggleDrawer, isDrawerOpen } = useContext(ContextProvider)
+    const { toggleDrawer, isDrawerOpen } = useDrawer()
 
     const navLinks = [
         { name: "Menu", href: "/menu" },
@@ -17,7 +17,7 @@ const Drawer = () => {
     return (
 
         <>
-            <section className={`min-h-70 h-fit w-full fixed top-0 bg-black/40 backdrop-blur-md z-100 ${isDrawerOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+            <section className={`min-h-70 h-fit w-full fixed top-0 bg-black/40 backdrop-blur-md z-100 transition-all ease-linear ${isDrawerOpen ? 'translate-y-0' : '-translate-y-full'}`}>
 
                 <div className='flex items-center justify-between py-5 px-7'>
 
