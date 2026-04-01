@@ -23,11 +23,11 @@ const Drawer = () => {
 
                 {isDrawerOpen && <section
                     onClick={toggleDrawer}
-                    className={`bg-black/40 backdrop-blur-md h-screen w-full fixed top-0 z-100`}>
+                    className={`bg-black/40 backdrop-blur-md h-screen w-full fixed top-0 z-101`}>
                 </section>
                 }
 
-                <section className={`min-h-70 h-fit w-full fixed top-0 bg-black/40 backdrop-blur-md z-100 transition-all ease-linear ${isDrawerOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+                <section className={`min-h-70 h-fit w-full fixed top-0 bg-black/40 backdrop-blur-md z-101 transition-all ease-linear ${isDrawerOpen ? 'translate-y-0' : '-translate-y-full'}`}>
 
                     <div className='flex items-center justify-between py-5 px-7'>
 

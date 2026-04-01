@@ -12,8 +12,6 @@ const Cart = () => {
 
     const { toggleCart, isCartOpen, cartItems, cartTotal, handleCheckOut } = useCart()
 
-    // console.log(cartItems)
-
     return (
 
         <main className='w-full flex'>
@@ -56,7 +54,7 @@ const Cart = () => {
                         <span className='text-red-500 text-lg font-bold font-heading'>${cartTotal.toFixed(2)}</span>
                     </div>
                     <span onClick={handleCheckOut} className={``}>
-                        <ButtonUi text={'Checkout'} />
+                        <ButtonUi text={'Confirm Order'} />
                     </span>
                 </div>
 

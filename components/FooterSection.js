@@ -13,7 +13,7 @@ const FooterSection = () => {
     }
     return (
         <>
-            <section className='absolute min-h-[60vh] top-0 h-fit py-20 w-full'>
+            <section className='relative min-h-[70vh] h-fit pt-20 w-full'>
                 <img
                     src='../assets/footerSectionBg.webp'
                     alt='hero'
@@ -63,8 +63,12 @@ const FooterSection = () => {
                         </div>
                     </div>
 
+                <footer className='mt-10 w-full border-t border-primary/10 py-8 px-6 text-center bg-linear-to-r from-primary-dark/30 to-primary-light/30'>
+                    <p className='text-white max-md:text-sm uppercase tracking-widest font-heading'>
+                        &copy; All Right Reserved  - M Aun R - 2012
+                    </p>
+                </footer>
                 </div>
-
             </section>
         </>
     )

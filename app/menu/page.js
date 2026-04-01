@@ -52,7 +52,7 @@ const MenuCard = ({ item, featured = false }) => {
                         {item.badge}
                     </span>
                 )}
-                <button onClick={() => addToCart(item)} className='absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-primary text-black text-xs font-semibold tracking-widest uppercase px-3 py-1.5 border-none cursor-pointer'>
+                <button onClick={() => addToCart(item)} className='absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-primary hover:bg-primary-light text-black text-xs font-semibold tracking-widest uppercase px-3 py-1.5 border-none cursor-pointer'>
                     Order Now
                 </button>
             </div>
@@ -116,14 +116,14 @@ export default function MenuPage() {
         : menuData.filter(c => c.id === activeTab)
 
     return (
-        <div className='min-h-screen bg-mist-900 text-white overflow-x-hidden absolute top-0 w-full'>
+        <div className='min-h-screen bg-mist-900 text-white overflow-x-hidden relative w-full'>
 
             <div
                 className='fixed inset-0 pointer-events-none z-0 opacity-40'
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")` }}
             />
 
-            <div className='relative min-h-[38vh] flex flex-col items-center justify-center text-center px-6 py-30 overflow-hidden'>
+            <div className='relative min-h-[38vh] flex flex-col items-center justify-center text-center px-6 pt-36 pb-20 overflow-hidden'>
                 <div className='absolute inset-0 pointer-events-none' style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,190,50,0.07) 0%, transparent 70%)' }} />
 
                 <p className='font-stylish text-2xl sm:text-3xl text-primary mb-3'>

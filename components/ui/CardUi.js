@@ -1,7 +1,12 @@
+'use client'
 import React from 'react'
 import ButtonUi from './ButtonUi'
 
 const SpecialCard = ({ item }) => {
+    const router = useRouter()
+    const GoToMenuPage = () => {
+        router.push('/menu')
+    }
     return (
         <div className='w-70 h-110 flex flex-col bg-mist-800'>
 
@@ -14,7 +19,9 @@ const SpecialCard = ({ item }) => {
                     <h2 className='font-semibold text-lg text-primary-light'>{item.name}</h2>
                     <p className='text-sm line-clamp-3'>{item.desc}</p>
                 </div>
-                <ButtonUi text={'Order Now'} />
+                <span onClick={GoToMenuPage}>
+                    <ButtonUi text={'Order Now'} />
+                </span>
             </div>
 
         </div>
@@ -48,7 +55,7 @@ export const DiningEventCard = ({ type, index }) => {
     const isEven = index % 2 === 0
 
     return (
-        <div className='relative max-md:h-55 max-lg:w-10/12 max-lg:h-70 w-250 h-85 2xl:w-300 mx-auto 2xl:h-100 overflow-hidden group'>
+        <div className='relative max-md:h-55 max-md:w-full max-lg:w-10/12 max-lg:h-70 w-250 h-85 2xl:w-300 mx-auto 2xl:h-100 overflow-hidden group'>
 
             <img
                 src={type.src}
@@ -78,6 +85,7 @@ export const DiningEventCard = ({ type, index }) => {
 
 import { Minus, Plus, Trash2 } from 'lucide-react'
 import { useCart } from '@/app/context/CartContext'
+import { useRouter } from 'next/navigation'
 
 const CartItemCard = ({ item }) => {
     const { removeFromCart, increaseQty, decreaseQty } = useCart()
@@ -85,7 +93,6 @@ const CartItemCard = ({ item }) => {
     return (
         <div className='flex gap-3 py-4 border-b border-white/8 group'>
 
-            {/* Image */}
             <div className='w-16 h-16 shrink-0 overflow-hidden bg-mist-800'>
                 {item.src ? (
                     <img src={item.src} alt={item.name} className='w-full h-full object-cover' />
@@ -97,15 +104,12 @@ const CartItemCard = ({ item }) => {
                 )}
             </div>
 
-            {/* Info */}
             <div className='flex flex-col gap-1 flex-1 min-w-0'>
                 <span className='font-heading text-sm text-primary-light truncate'>{item.name}</span>
                 <span className='text-xs text-white/40 truncate'>{item.ingredients}</span>
 
-                {/* Qty + Price row */}
                 <div className='flex items-center justify-between mt-1'>
 
-                    {/* Qty controls */}
                     <div className='flex items-center gap-2'>
                         <button
                             onClick={() => decreaseQty(item.itemId)}
@@ -122,14 +126,12 @@ const CartItemCard = ({ item }) => {
                         </button>
                     </div>
 
-                    {/* Item total */}
                     <span className='font-heading text-sm font-semibold text-primary'>
                         ${(item.price * item.qty).toFixed(2)}
                     </span>
                 </div>
             </div>
 
-            {/* Remove */}
             <button
                 onClick={() => removeFromCart(item.itemId)}
                 className='self-start opacity-0 group-hover:opacity-100 transition-opacity text-white/30 hover:text-red-400 cursor-pointer'

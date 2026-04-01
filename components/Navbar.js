@@ -28,10 +28,12 @@ const Navbar = () => {
         router.push('/reservation')
     }
 
+
+
     if (pathname.includes(hiddenRoutes)) return null
 
     return (
-        <nav className="flex items-center justify-between py-4 px-10 lg:px-20 bg-transparent relative z-50">
+        <nav className="flex items-center justify-between py-4 px-7 lg:px-20 bg-transparent backdrop-blur-md fixed w-full max-w-384 z-100">
 
             <div className="logo">
                 <img src="../assets/logo.png" alt="DMR SUSHI" className='w-12' />

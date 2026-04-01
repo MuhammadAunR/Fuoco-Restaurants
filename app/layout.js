@@ -5,6 +5,7 @@ import Drawer from "@/components/Drawer";
 import Cart from "@/components/Cart";
 import AppWrapper from "./context/AppWrapper";
 import { Toaster } from "react-hot-toast";
+import FooterSection from "@/components/FooterSection";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -54,9 +55,14 @@ export default function RootLayout({ children }) {
             }}
           />
           <Drawer />
-          <Navbar />
           <Cart />
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <Navbar />
+            <main className="flex-1">
+              {children}
+            </main>
+            <FooterSection />
+          </div>
         </AppWrapper>
       </body>
     </html>
