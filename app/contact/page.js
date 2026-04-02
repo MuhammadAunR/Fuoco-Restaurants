@@ -6,27 +6,27 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
 const contactInfo = [
     {
         icon: <MapPin size={18} />,
-        label: 'Address',
-        value: '123 Old Town Street',
-        sub: 'Vienna, Austria 1010',
+        label: 'Our Locations',
+        value: 'Gulberg II, Lahore',
+        sub: 'F-6 Markaz, Islamabad',
     },
     {
         icon: <Phone size={18} />,
         label: 'Reservations',
-        value: '+43 1 234 5678',
-        sub: 'Mon - Sun, 10AM - 10PM',
+        value: 'Lahore: 0305-2101111',
+        sub: 'Islamabad: 0302-6333367',
     },
     {
         icon: <Mail size={18} />,
         label: 'Email',
-        value: 'hello@dmrsushi.com',
+        value: 'info@fuoco.com.pk',
         sub: 'We reply within 24 hours',
     },
     {
         icon: <Clock size={18} />,
         label: 'Hours',
-        value: 'Mon - Sun',
-        sub: '12:00 PM - 11:00 PM',
+        value: 'Lahore: 1PM - 12AM',
+        sub: 'Islamabad: 1PM - 1AM',
     },
 ]
 
@@ -51,7 +51,7 @@ const socials = [
     },
 ]
 
-const subjects = ['General Inquiry', 'Reservation', 'Private Event', 'Feedback', 'Partnership']
+const subjects = ['Table Reservation', 'Private Dining', 'Corporate Event', 'Menu Enquiry', 'Feedback']
 
 // ── Divider ───────────────────────────────────────────
 const Divider = () => (
@@ -64,7 +64,7 @@ const Divider = () => (
 
 // ── Main Page ─────────────────────────────────────────
 export default function ContactPage() {
-    const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+    const [form, setForm] = useState({ name: '', email: '', phone: '', branch: '', subject: '', message: '' })
     const [errors, setErrors] = useState({})
     const [submitted, setSubmitted] = useState(false)
     const [focused, setFocused] = useState('')
@@ -132,11 +132,10 @@ export default function ContactPage() {
             <div className='relative flex flex-col items-center justify-center text-center px-6 pt-34 pb-16 overflow-hidden'>
                 <div className='absolute inset-0 pointer-events-none'
                     style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245,190,50,0.05) 0%, transparent 70%)' }} />
-
-                <span data-aos='fade-up' className='font-stylish text-2xl sm:text-3xl text-primary mb-3 '>
+                <span data-aos='fade-up' className='font-stylish text-2xl sm:text-3xl text-primary mb-3'>
                     Get in Touch
                 </span>
-                <h1 data-aos='fade-up' className='font-heading font-bold uppercase text-primary-light) leading-none mb-4'
+                <h1 data-aos='fade-up' className='font-heading font-bold uppercase text-primary-light leading-none mb-4'
                     style={{ fontSize: 'clamp(2.2rem,7vw,5rem)', letterSpacing: '0.1em' }}>
                     Contact Us
                 </h1>
@@ -144,172 +143,229 @@ export default function ContactPage() {
                     <Divider />
                 </div>
                 <p data-aos='fade-up' className='text-white/40 text-xs tracking-widest uppercase mt-4'>
-                    We'd love to hear from you
+                    Reserve a table or enquire about your next dining experience
                 </p>
             </div>
 
-            <div data-aos='fade-down' className='max-w-6xl mx-auto px-5 sm:px-8 pb-24 grid grid-cols-1 lg:grid-cols-5 gap-0'>
+            <div data-aos='fade-down' className='max-w-6xl mx-auto px-5 sm:px-8 pb-24 flex flex-col gap-0'>
 
-                <div className='lg:col-span-2 border border-primary/15 bg-mist-800/50 p-8 sm:p-10 flex flex-col gap-10 lg:border-r-0'>
+                <div className='grid grid-cols-1 lg:grid-cols-5 gap-0'>
 
-                    <div className='flex flex-col gap-3'>
-                        <span className='font-stylish text-xl text-primary'>DMR Sushi</span>
-                        <p className='text-white/50 text-sm leading-7'>
-                            Whether you're planning a private dinner, celebrating a milestone, or simply want to enquire about our menu — we are always delighted to hear from our guests.
-                        </p>
-                    </div>
+                    <div className='lg:col-span-2 border border-primary/15 bg-mist-800/50 p-8 sm:p-10 flex flex-col gap-10 lg:border-r-0 lg:border-b-0'>
 
-                    <Divider />
+                        <div className='flex flex-col gap-3'>
+                            <span className='font-stylish text-xl text-primary'>Fuòco</span>
+                            <p className='text-white/50 text-sm leading-7'>
+                                Whether you are planning an intimate dinner, celebrating a special occasion, or simply wish to enquire about our menu and reservations — our team across Lahore and Islamabad is always delighted to welcome you.
+                            </p>
+                        </div>
 
-                    <div className='flex flex-col gap-6'>
-                        {contactInfo.map(({ icon, label, value, sub }) => (
-                            <div key={label} className='flex items-start gap-4 group'>
-                                <div className='w-9 h-9 border border-primary/25 flex items-center justify-center text-primary shrink-0 group-hover:border-primary/60 group-hover:bg-primary/8 transition-all duration-300'>
-                                    {icon}
-                                </div>
-                                <div className='flex flex-col gap-0.5'>
-                                    <span className='text-white/35 text-xs uppercase tracking-widest font-heading'>{label}</span>
-                                    <span className='text-white/80 text-sm'>{value}</span>
-                                    <span className='text-white/35 text-xs'>{sub}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                        <Divider />
 
-                    <Divider />
-
-                    <div className='flex flex-col gap-3'>
-                        <p className='text-white/35 text-xs uppercase tracking-widest font-heading'>Follow Us</p>
-                        <div className='flex flex-row gap-3 flex-wrap items-center justify-center'>
-                            {socials.map(({ icon, label }) => (
-                                <div key={label} className='flex items-center gap-3 group cursor-pointer'>
-                                    <span className='text-primary/60 group-hover:text-primary transition-colors duration-200'>{icon}
-                                    </span>
+                        <div className='flex flex-col gap-6'>
+                            {contactInfo.map(({ icon, label, value, sub }) => (
+                                <div key={label} className='flex items-start gap-4 group'>
+                                    <div className='w-9 h-9 border border-primary/25 flex items-center justify-center text-primary shrink-0 group-hover:border-primary/60 group-hover:bg-primary/8 transition-all duration-300'>
+                                        {icon}
+                                    </div>
+                                    <div className='flex flex-col gap-0.5'>
+                                        <span className='text-white/35 text-xs uppercase tracking-widest font-heading'>{label}</span>
+                                        <span className='text-white/80 text-sm'>{value}</span>
+                                        <span className='text-white/35 text-xs'>{sub}</span>
+                                    </div>
                                 </div>
                             ))}
                         </div>
-                    </div>
 
-                    <div className='relative h-36 border border-primary/15 overflow-hidden'>
-                        <div className='absolute inset-0 flex flex-col items-center justify-center gap-2'
-                            style={{ background: 'linear-gradient(135deg, #1c2124, #252b30)' }}>
-                            <MapPin size={22} className='text-primary/40' />
-                            <span className='text-white/25 text-xs uppercase tracking-widest'>123 Old Town St, Vienna</span>
+                        <Divider />
+
+                        <div className='flex flex-col gap-3'>
+                            <p className='text-white/35 text-xs uppercase tracking-widest font-heading'>Follow Us</p>
+                            <div className='flex flex-row gap-3 flex-wrap items-center justify-center'>
+                                {socials.map(({ icon, label }) => (
+                                    <div key={label} className='flex items-center gap-3 group cursor-pointer'>
+                                        <span className='text-primary/60 group-hover:text-primary transition-colors duration-200'>
+                                            {icon}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <span className='absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/40' />
-                        <span className='absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/40' />
-                        <span className='absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/40' />
-                        <span className='absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/40' />
+
                     </div>
 
-                </div>
+                    <div className='lg:col-span-3 border border-primary/15 bg-mist-800/30 p-8 sm:p-12 flex flex-col gap-8'>
 
-                <div className='lg:col-span-3 border border-primary/15 bg-mist-800/30 p-8 sm:p-12 flex flex-col gap-8'>
-
-                    <div className='flex flex-col gap-1'>
-                        <span className='font-stylish text-xl text-primary'>Send a Message</span>
-                        <p className='text-white/35 text-xs uppercase tracking-widest font-heading'>All fields marked * are required</p>
-                    </div>
-
-                    <div className='flex flex-col gap-3'>
-                        <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
-                            Subject <span className='text-primary'>*</span>
-                        </label>
-                        <div className='flex flex-wrap gap-2'>
-                            {subjects.map(s => (
-                                <button
-                                    key={s}
-                                    type='button'
-                                    onClick={() => { setForm(prev => ({ ...prev, subject: s })); setErrors(prev => ({ ...prev, subject: '' })) }}
-                                    className={`text-xs uppercase tracking-widest px-4 py-2 border transition-all duration-200 cursor-pointer ${form.subject === s
-                                        ? 'border-primary bg-primary/10 text-primary'
-                                        : 'border-white/15 text-white/40 hover:border-primary/40 hover:text-white/70'}`}
-                                >
-                                    {s}
-                                </button>
-                            ))}
+                        <div className='flex flex-col gap-1'>
+                            <span className='font-stylish text-xl text-primary'>Send a Message</span>
+                            <p className='text-white/35 text-xs uppercase tracking-widest font-heading'>All fields marked * are required</p>
                         </div>
-                        {errors.subject && <p className='text-red-400 text-xs'>{errors.subject}</p>}
-                    </div>
 
-                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+                        <div className='flex flex-col gap-3'>
+                            <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
+                                Subject <span className='text-primary'>*</span>
+                            </label>
+                            <div className='flex flex-wrap gap-2'>
+                                {subjects.map(s => (
+                                    <button
+                                        key={s}
+                                        type='button'
+                                        onClick={() => { setForm(prev => ({ ...prev, subject: s })); setErrors(prev => ({ ...prev, subject: '' })) }}
+                                        className={`text-xs uppercase tracking-widest px-4 py-2 border transition-all duration-200 cursor-pointer ${form.subject === s
+                                            ? 'border-primary bg-primary/10 text-primary'
+                                            : 'border-white/15 text-white/40 hover:border-primary/40 hover:text-white/70'}`}
+                                    >
+                                        {s}
+                                    </button>
+                                ))}
+                            </div>
+                            {errors.subject && <p className='text-red-400 text-xs'>{errors.subject}</p>}
+                        </div>
+
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
+                                    Full Name <span className='text-primary'>*</span>
+                                </label>
+                                <div className={borderBase('name')}>
+                                    <input
+                                        type='text' name='name' value={form.name}
+                                        onChange={handleChange}
+                                        onFocus={() => setFocused('name')}
+                                        onBlur={() => setFocused('')}
+                                        placeholder='Ahmed Khan'
+                                        className={inputBase}
+                                    />
+                                </div>
+                                {errors.name && <p className='text-red-400 text-xs'>{errors.name}</p>}
+                            </div>
+
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
+                                    Email <span className='text-primary'>*</span>
+                                </label>
+                                <div className={borderBase('email')}>
+                                    <input
+                                        type='email' name='email' value={form.email}
+                                        onChange={handleChange}
+                                        onFocus={() => setFocused('email')}
+                                        onBlur={() => setFocused('')}
+                                        placeholder='ahmed@example.com'
+                                        className={inputBase}
+                                    />
+                                </div>
+                                {errors.email && <p className='text-red-400 text-xs'>{errors.email}</p>}
+                            </div>
+                        </div>
+
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
+                                    Phone Number
+                                </label>
+                                <div className={borderBase('phone')}>
+                                    <input
+                                        type='tel' name='phone' value={form.phone}
+                                        onChange={handleChange}
+                                        onFocus={() => setFocused('phone')}
+                                        onBlur={() => setFocused('')}
+                                        placeholder='+92 300 0000000'
+                                        className={inputBase}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
+                                    Preferred Branch
+                                </label>
+                                <div className={borderBase('branch')}>
+                                    <select
+                                        name='branch' value={form.branch}
+                                        onChange={handleChange}
+                                        onFocus={() => setFocused('branch')}
+                                        onBlur={() => setFocused('')}
+                                        className={`${inputBase} cursor-pointer`}
+                                        style={{ background: 'transparent' }}
+                                    >
+                                        <option value='' disabled style={{ background: '#1c2124' }}>Select Branch</option>
+                                        <option value='Lahore' style={{ background: '#1c2124' }}>Lahore — Gulberg II</option>
+                                        <option value='Islamabad' style={{ background: '#1c2124' }}>Islamabad — F-6 Markaz</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div className='flex flex-col gap-2'>
                             <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
-                                Full Name <span className='text-primary'>*</span>
+                                Message <span className='text-primary'>*</span>
                             </label>
-                            <div className={borderBase('name')}>
-                                <input
-                                    type='text' name='name' value={form.name}
+                            <div className={borderBase('message')}>
+                                <textarea
+                                    name='message' value={form.message}
                                     onChange={handleChange}
-                                    onFocus={() => setFocused('name')}
+                                    onFocus={() => setFocused('message')}
                                     onBlur={() => setFocused('')}
-                                    placeholder='John Doe'
-                                    className={inputBase}
+                                    placeholder='Tell us about your reservation, special occasion, or any enquiry...'
+                                    rows={5}
+                                    className={`${inputBase} resize-none`}
                                 />
                             </div>
-                            {errors.name && <p className='text-red-400 text-xs'>{errors.name}</p>}
+                            {errors.message && <p className='text-red-400 text-xs'>{errors.message}</p>}
                         </div>
 
-                        <div className='flex flex-col gap-2'>
-                            <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
-                                Email <span className='text-primary'>*</span>
-                            </label>
-                            <div className={borderBase('email')}>
-                                <input
-                                    type='email' name='email' value={form.email}
-                                    onChange={handleChange}
-                                    onFocus={() => setFocused('email')}
-                                    onBlur={() => setFocused('')}
-                                    placeholder='john@example.com'
-                                    className={inputBase}
-                                />
-                            </div>
-                            {errors.email && <p className='text-red-400 text-xs'>{errors.email}</p>}
+                        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2'>
+                            <p className='text-white/25 text-xs leading-5'>
+                                By sending this message you agree to our privacy policy. Your details will never be shared with third parties.
+                            </p>
+                            <button
+                                onClick={handleSubmit}
+                                className='relative flex items-center gap-3 uppercase font-heading font-semibold tracking-widest text-sm px-8 py-3 cursor-pointer overflow-hidden text-primary bg-primary/10 hover:bg-transparent transition-all duration-300 group shrink-0'
+                            >
+                                <span className='absolute top-0 left-0 h-full w-0.5 bg-current' />
+                                <span className='absolute top-0 right-0 h-full w-0.5 bg-current' />
+                                <span className='absolute top-0 left-0 h-0.5 w-1/2 bg-current' />
+                                <span className='absolute top-0 right-0 h-0.5 w-0 bg-current group-hover:w-1/2 transition-all duration-300 ease-out' />
+                                <span className='absolute bottom-0 right-0 h-0.5 w-1/2 bg-current' />
+                                <span className='absolute bottom-0 left-0 h-0.5 w-0 bg-current group-hover:w-1/2 transition-all duration-300 ease-out' />
+                                <span className='relative z-10'>Send Message</span>
+                                <Send size={14} className='relative z-10' />
+                            </button>
                         </div>
-                    </div>
 
-                    <div className='flex flex-col gap-2'>
-                        <label className='text-white/35 text-xs uppercase tracking-widest font-heading'>
-                            Message <span className='text-primary'>*</span>
-                        </label>
-                        <div className={borderBase('message')}>
-                            <textarea
-                                name='message' value={form.message}
-                                onChange={handleChange}
-                                onFocus={() => setFocused('message')}
-                                onBlur={() => setFocused('')}
-                                placeholder='Tell us how we can help you...'
-                                rows={5}
-                                className={`${inputBase} resize-none`}
-                            />
-                        </div>
-                        {errors.message && <p className='text-red-400 text-xs'>{errors.message}</p>}
                     </div>
-
-                    <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-2'>
-                        <p className='text-white/25 text-xs leading-5'>
-                            By sending this message you agree to our privacy policy. We will never share your details with third parties.
-                        </p>
-                        <button
-                            onClick={handleSubmit}
-                            className='relative flex items-center gap-3 uppercase font-heading font-semibold tracking-widest text-sm px-8 py-3 cursor-pointer overflow-hidden text-primary bg-primary/10 hover:bg-transparent transition-all duration-300 group shrink-0'
-                        >
-                            <span className='absolute top-0 left-0 h-full w-0.5 bg-current' />
-                            <span className='absolute top-0 right-0 h-full w-0.5 bg-current' />
-                            <span className='absolute top-0 left-0 h-0.5 w-1/2 bg-current' />
-                            <span className='absolute top-0 right-0 h-0.5 w-0 bg-current group-hover:w-1/2 transition-all duration-300 ease-out' />
-                            <span className='absolute bottom-0 right-0 h-0.5 w-1/2 bg-current' />
-                            <span className='absolute bottom-0 left-0 h-0.5 w-0 bg-current group-hover:w-1/2 transition-all duration-300 ease-out' />
-                            <span className='relative z-10'>Send Message</span>
-                            <Send size={14} className='relative z-10' />
-                        </button>
-
-                        
-                    </div>
-                    
                 </div>
+
+                <div className='relative border border-primary/15 border-t-0 overflow-hidden grid grid-cols-1 sm:grid-cols-2'>
+                    <span className='absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/40 z-10' />
+                    <span className='absolute top-0 right-0 w-3 h-3 border-t border-r border-primary/40 z-10' />
+                    <span className='absolute bottom-0 left-0 w-3 h-3 border-b border-l border-primary/40 z-10' />
+                    <span className='absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/40 z-10' />
+
+                    <div>
+                        <p className='text-xs uppercase tracking-widest text-primary/50 px-3 pt-3 pb-1'>Lahore — Gulberg II</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.9725470328135!2d74.35248877559997!3d31.52491394691756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919055c1ab90021%3A0xcb8a60327001a984!2sFuoco!5e0!3m2!1sen!2s!4v1775117828473!5m2!1sen!2s" width='100%'
+                            height='260'
+                            style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(90%)' }}
+                            allowFullScreen=""
+                            loading="lazy" referrerPolicy="no-referrer-when-downgrade">
+
+                        </iframe>
+                    </div>
+
+                    <div className='sm:border-l border-primary/15'>
+                        <p className='text-xs uppercase tracking-widest text-primary/50 px-3 pt-3 pb-1'>Islamabad — F-6 Markaz</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.1656884719964!2d73.07649657568042!3d33.730531434649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf5e373fa03d%3A0xa86d2a16fe813436!2sFuoco!5e0!3m2!1sen!2s!4v1775117996604!5m2!1sen!2s"
+                            width='100%'
+                            height='260'
+                            style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(90%)' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
             </div>
-
         </div>
     )
 }
