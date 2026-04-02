@@ -5,11 +5,8 @@ import { useCart } from '../context/CartContext'
 
 const tabs = [
     { id: 'all', label: 'All' },
-    { id: 'specialities', label: 'Specialities' },
-    { id: 'sushi', label: 'Sushi Rolls' },
-    { id: 'nigiri', label: 'Nigiri' },
-    { id: 'cocktails', label: 'Cocktails' },
-    { id: 'desserts', label: 'Desserts' },
+    { id: 'italian', label: 'Italian' },
+    { id: 'european', label: 'European' },
 ]
 
 // ── Spice Dots ──────────────────────────────────────
@@ -30,28 +27,14 @@ const MenuCard = ({ item, featured = false }) => {
     const { addToCart } = useCart()
 
     return (
-        <div data-aos='zoom-in' className={`relative flex overflow-hidden cursor-pointer border border-primary/20 hover:border-primary/50 transition-all duration-300 group bg-mist-800 ${featured ? 'flex-col sm:flex-row col-span-full' : 'flex-col'}`}>
+        <div data-aos='zoom-in' className={`relative flex overflow-hidden cursor-pointer border border-primary/20 hover:border-primary/50 transition-all duration-300 group bg-mist-800 ${featured ? 'flex-col sm:items-center sm:flex-row col-span-full' : 'flex-col'}`}>
 
             <div className={`relative overflow-hidden bg-mist-900 shrink-0 ${featured ? 'h-52 sm:h-auto sm:w-80' : 'h-48'}`}>
-                {item.src ? (
-                    <img
-                        src={item.src} alt={item.name}
-                        className='w-full h-full object-cover brightness-85 saturate-90 group-hover:scale-105 transition-transform duration-700'
-                    />
-                ) : (
-                    <div
-                        className='w-full h-full flex items-center justify-center text-5xl'
-                        style={{ background: 'linear-gradient(135deg, #1c2124 0%, #252b30 50%, #1a1e22 100%)', color: 'rgba(245,190,50,0.12)', fontFamily: 'serif' }}
-                    >
-                        {item.symbol}
-                    </div>
-                )}
+                <img
+                    src={item.src} alt={item.name}
+                    className='w-full h-full object-cover brightness-85 saturate-90 group-hover:scale-105 transition-transform duration-700'
+                />
                 <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300' />
-                {item.badge && (
-                    <span className='absolute top-3 left-3 bg-primary text-black text-xs font-semibold tracking-widest uppercase px-2 py-0.5'>
-                        {item.badge}
-                    </span>
-                )}
                 <button onClick={() => addToCart(item)} className='absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-primary hover:bg-primary-light text-black text-xs font-semibold tracking-widest uppercase px-3 py-1.5 border-none cursor-pointer'>
                     Order Now
                 </button>
@@ -64,7 +47,7 @@ const MenuCard = ({ item, featured = false }) => {
                     </span>
                     <div className='flex-1 self-center border-b border-dotted border-primary/20 mx-2' />
                     <span style={{ fontFamily: 'serif' }} className='text-lg font-semibold text-primary whitespace-nowrap shrink-0'>
-                        $ {item.price}
+                        <span className='text-sm'>PKR</span> {item.price}
                     </span>
                 </div>
 
@@ -91,7 +74,7 @@ const CategorySection = ({ cat }) => (
             </span>
             <div className='flex flex-col gap-1'>
                 <span className='font-stylish text-base text-primary'>{cat.tag}</span>
-                <h2 style={{ fontFamily: 'serif', fontSize: 'clamp(1.4rem,3vw,2.2rem)', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'varprimary-light' }}>
+                <h2 style={{ fontFamily: 'serif', fontSize: 'clamp(1.4rem,3vw,2.2rem)', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'primary-light' }}>
                     {cat.title}
                 </h2>
             </div>
@@ -127,7 +110,7 @@ export default function MenuPage() {
                 <div className='absolute inset-0 pointer-events-none' style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,190,50,0.07) 0%, transparent 70%)' }} />
 
                 <p data-aos='fade-up' className='font-stylish text-2xl sm:text-3xl text-primary mb-3'>
-                    A Culinary Journey
+                    A Fine Dining Experience
                 </p>
                 <h1 data-aos='fade-up'
                     className='font-bold uppercase text-primary-light leading-none tracking-wide'
@@ -141,7 +124,7 @@ export default function MenuPage() {
                     <div data-aos='fade-left' className='h-px w-14' style={{ background: 'linear-gradient(to right, transparent, #F5BE32)' }} />
                 </div>
                 <p data-aos='fade-up' className='text-xs tracking-widest uppercase text-white/35'>
-                    Handcrafted with the finest ingredients · Est. 2012
+                    Curated with the finest European and Italian ingredients · Lahore & Islamabad
                 </p>
             </div>
 
