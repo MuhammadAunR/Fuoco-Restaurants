@@ -51,9 +51,9 @@ const Cart = () => {
                 <div className='p-5 border-t border-white/10 shrink-0 flex flex-col items-end gap-5'>
                     <div className='flex items-center justify-between w-full'>
                         <h4 className='text-xl font-semibold text-primary-light'>SubTotal</h4>
-                        <span className='text-red-500 text-lg font-bold font-heading'>${cartTotal.toFixed(2)}</span>
+                        <span className='text-red-500 text-lg font-bold font-heading'><span className='text-sm'>PKR </span>{cartTotal.toLocaleString()}</span>
                     </div>
-                    <span onClick={handleCheckOut} className={``}>
+                    <span onClick={handleCheckOut}>
                         <ButtonUi text={'Confirm Order'} />
                     </span>
                 </div>

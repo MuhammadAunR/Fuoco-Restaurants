@@ -42,12 +42,12 @@ const MenuCard = ({ item, featured = false }) => {
 
             <div className='flex flex-col gap-3 p-5 flex-1'>
                 <div className='flex items-start justify-between gap-3'>
-                    <span style={{ fontFamily: 'serif' }} className='text-lg font-semibold text-primary-light leading-tight tracking-wide'>
+                    <span className='font-heading text-lg font-semibold text-primary-light leading-tight tracking-wide'>
                         {item.name}
                     </span>
                     <div className='flex-1 self-center border-b border-dotted border-primary/20 mx-2' />
-                    <span style={{ fontFamily: 'serif' }} className='text-lg font-semibold text-primary whitespace-nowrap shrink-0'>
-                        <span className='text-sm'>PKR</span> {item.price}
+                    <span className='font-heading text-lg font-semibold text-primary whitespace-nowrap shrink-0'>
+                        <span className='text-sm'>PKR</span> {Number(item.price).toLocaleString()}
                     </span>
                 </div>
 
@@ -69,12 +69,12 @@ const MenuCard = ({ item, featured = false }) => {
 const CategorySection = ({ cat }) => (
     <div className='mb-20'>
         <div className='flex items-center gap-5 mb-10'>
-            <span style={{ fontFamily: 'serif', fontSize: 'clamp(2rem,5vw,4rem)', color: 'rgba(245,190,50,0.1)', fontWeight: 300, lineHeight: 1, flexShrink: 0 }}>
+            <span className='font-heading' style={{ fontSize: 'clamp(2rem,5vw,4rem)', color: 'rgba(245,190,50,0.1)', fontWeight: 300, lineHeight: 1, flexShrink: 0 }}>
                 {cat.number}
             </span>
             <div className='flex flex-col gap-1'>
                 <span className='font-stylish text-base text-primary'>{cat.tag}</span>
-                <h2 style={{ fontFamily: 'serif', fontSize: 'clamp(1.4rem,3vw,2.2rem)', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'primary-light' }}>
+                <h2 className='font-heading' style={{ fontSize: 'clamp(1.4rem,3vw,2.2rem)', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'primary-light' }}>
                     {cat.title}
                 </h2>
             </div>
@@ -113,8 +113,8 @@ export default function MenuPage() {
                     A Fine Dining Experience
                 </p>
                 <h1 data-aos='fade-up'
-                    className='font-bold uppercase text-primary-light leading-none tracking-wide'
-                    style={{ fontFamily: 'serif', fontSize: 'clamp(3rem,8vw,6rem)', fontWeight: 300 }}
+                    className='font-bold font-heading uppercase text-primary-light leading-none tracking-wide'
+                    style={{ fontSize: 'clamp(3rem,8vw,6rem)', fontWeight: 300 }}
                 >
                     Our Menu
                 </h1>
@@ -152,8 +152,8 @@ export default function MenuPage() {
                         {i === 0 && activeTab === 'all' && (
                             <div data-aos='fade-up' className='border-t border-b border-primary/18 py-10 my-4 mb-16 text-center'
                                 style={{ background: 'linear-gradient(to right, transparent, rgba(245,190,50,0.06), transparent)' }}>
-                                <p className='italic text-white/55 max-w-xl mx-auto leading-8 px-4'
-                                    style={{ fontFamily: 'serif', fontSize: 'clamp(0.95rem,2vw,1.25rem)', fontWeight: 300, letterSpacing: '0.03em' }}>
+                                <p className='italic text-white/55 max-w-xl mx-auto leading-8 px-4 font-heading'
+                                    style={{ fontSize: 'clamp(0.95rem,2vw,1.25rem)', fontWeight: 300, letterSpacing: '0.03em' }}>
                                     "Every roll tells a story of the sea, the hands that shaped it, and the moment it reaches you."
                                 </p>
                                 <p className='text-xs tracking-widest uppercase text-primary mt-4'>— Chef Damir, Head Chef & Founder</p>

@@ -93,15 +93,8 @@ const CartItemCard = ({ item }) => {
     return (
         <div className='flex gap-3 py-4 border-b border-white/8 group'>
 
-            <div className='w-16 h-16 shrink-0 overflow-hidden bg-mist-800'>
-                {item.src ? (
-                    <img src={item.src} alt={item.name} className='w-full h-full object-cover' />
-                ) : (
-                    <div className='w-full h-full flex items-center justify-center text-xl'
-                        style={{ background: '#1c2124', color: 'rgba(245,190,50,0.2)' }}>
-                        ❋
-                    </div>
-                )}
+            <div className='w-16 h-16 shrink-0 overflow-hidden bg-mist-800 rounded-full'>
+                <img src={item.src} alt={item.name} className='w-full h-full object-cover' />
             </div>
 
             <div className='flex flex-col gap-1 flex-1 min-w-0'>
@@ -127,7 +120,8 @@ const CartItemCard = ({ item }) => {
                     </div>
 
                     <span className='font-heading text-sm font-semibold text-primary'>
-                        ${(item.price * item.qty).toFixed(2)}
+
+                       <span className='text-xs'>PKR</span>  {(item.price * item.qty).toLocaleString()}
                     </span>
                 </div>
             </div>
