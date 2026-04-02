@@ -30,7 +30,7 @@ const DiningEvent = () => {
                 </div>
 
                 <section className='py-10 md:py-20'>
-                <img src="../assets/diningsalmon-bg.webp" alt="Dining Salmon" className='w-full'/>
+                <img src="../assets/dining-bg.webp" alt="Dining Luxury Sitting" className='w-full h-100 object-cover object-center'/>
             </section>
             </section>
         </>

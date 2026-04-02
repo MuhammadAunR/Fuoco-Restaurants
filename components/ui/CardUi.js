@@ -34,26 +34,6 @@ const SpecialCard = ({ item }) => {
 export default SpecialCard
 
 
-const MenuSectionCard = ({ item, index }) => {
-    const isEven = index % 2 === 0;
-    return (
-        <div data-aos={isEven ? 'flip-left' : 'flip-right'} className={`text-white/80 flex max-lg:flex-col ${isEven ? 'flex-row' : 'flex-row-reverse'} items-center justify-center w-full gap-10`}>
-            <div className='w-full h-60 md:w-150 md:h-95 overflow-hidden'>
-                <img src={item.src} alt={item.name} className='w-full h-full object-cover' />
-            </div>
-            <div className='flex flex-col items-start max-lg:items-center gap-2'>
-                <h3 className='font-semibold text-xl text-primary-light'>{item.name}</h3>
-                <h4 className='text-primary-dark text-center'>{item.ingredients}</h4>
-                <h4 className='max-lg:text-center lg:w-10/12'>{item.desc}</h4>
-                <span className='font-semibold text-lg text-primary-light'>${item.price}</span>
-            </div>
-        </div>
-    )
-}
-
-export { MenuSectionCard }
-
-
 export const DiningEventCard = ({ type, index }) => {
     const isEven = index % 2 === 0
 

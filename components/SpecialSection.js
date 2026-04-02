@@ -24,7 +24,7 @@ const SpecialSection = () => {
             </div>
 
             <section className='py-10 md:py-20'>
-                <img src="../assets/luxurybg.webp" alt="Luxury Bg" className='w-full' />
+                <img src="../assets/luxury-restaurant.webp" alt="Luxury Restaurant" className='w-full h-100 object-bottom object-cover' />
             </section>
 
         </section>

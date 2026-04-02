@@ -9,7 +9,7 @@ const AboutSection = () => {
     const GoToAboutPage = () => {
         router.push('/about')
     }
-    
+
     return (
         <>
             <section className='bg-mist-900 min-h-screen h-fit relative py-15'>
@@ -48,18 +48,11 @@ const AboutSection = () => {
 
                     <div data-aos='fade-left' className='flex flex-col items-start gap-6 text-white/80 lg:w-1/2'>
                         <p className='text-white/80 leading-relaxed'>
-                            At DMR Sushi, our story began with a single passion — to bring the art of
-                            authentic Japanese sushi to the heart of Europe. Founded by Chef Damir, a
-                            culinary master trained in the streets of Tokyo and the fine dining rooms of
-                            Paris, our restaurant was built on the belief that food is not just
-                            nourishment — it is an experience, a memory, a moment shared.
+                            At <span className='text-primary font-semibold'>Fuòco</span>, our story began with a single vision — to bring the art of contemporary European and Italian cuisine to Pakistan. Founded by two brothers who share an obsession with exceptional food, <span className='text-primary font-semibold'>Fuòco</span> was built on the belief that dining is not just nourishment — it is an experience, a memory, a moment worth savouring.
                         </p>
 
                         <p className='text-white/80 leading-relaxed'>
-                            Every roll we craft carries decades of culinary wisdom and an obsession with
-                            quality. We source only the freshest ingredients — because our guests deserve
-                            nothing less than perfection on every plate. We are not just a restaurant.
-                            We are a destination for those who appreciate the finer things in life.
+                            We are not just a restaurant. We are a destination for those who appreciate the finer things in life. From our first table in Islamabad to our Lahore dining room, every visit to <span className='text-primary font-semibold'>Fuòco</span> is designed to feel personal, refined, and truly unforgettable.
                         </p>
                         <span onClick={GoToAboutPage} className=''>
                             <ButtonUi text={'More about us'} />
