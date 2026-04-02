@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import FooterSection from "@/components/FooterSection";
 import AosInit from "@/components/AosInit";
 import Lenis from "@/components/LenisAnimation";
+import ScrollToTopOnNavigate from "@/components/ScrollToTopOnNavigate";
 
 const lora = Lora({
   variable: "--font-lora",
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <AppWrapper>
+          <ScrollToTopOnNavigate />
           <Toaster
             position="top-center"
             toastOptions={{

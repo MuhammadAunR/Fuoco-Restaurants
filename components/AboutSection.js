@@ -19,7 +19,7 @@ const AboutSection = () => {
                         Our Story
                     </h1>
                     <p className='text-center'>
-                        A journey for making successful luxury restaurant <br />with the best services
+                        A journey of contemporary cuisine, passion & fine dining
                     </p>
                 </div>
 

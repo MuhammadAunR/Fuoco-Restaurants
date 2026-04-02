@@ -100,9 +100,9 @@ export default function MenuPage() {
                                 style={{ background: 'linear-gradient(to right, transparent, rgba(245,190,50,0.06), transparent)' }}>
                                 <p className='italic text-white/55 max-w-xl mx-auto leading-8 px-4 font-heading'
                                     style={{ fontSize: 'clamp(0.95rem,2vw,1.25rem)', fontWeight: 300, letterSpacing: '0.03em' }}>
-                                    "Every roll tells a story of the sea, the hands that shaped it, and the moment it reaches you."
+                                    Fine dining is not just food — it is the story of the land, the harvest, and the hands that transform the finest ingredients into moments worth remembering.
                                 </p>
-                                <p className='text-xs tracking-widest uppercase text-primary mt-4'>— Chef Damir, Head Chef & Founder</p>
+                                <p className='text-xs tracking-widest uppercase text-primary mt-4'>Fuòco Kitchen</p>
                             </div>
                         )}
                     </div>

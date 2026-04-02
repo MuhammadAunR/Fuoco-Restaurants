@@ -49,7 +49,7 @@ export const DiningEventCard = ({ type, index }) => {
             <div className={`relative z-10 h-full flex flex-col justify-center gap-2 px-10 ${isEven ? 'items-start' : 'items-end text-right'}`}>
 
                 <div className={`flex items-baseline gap-3 ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
-                    <span className='text-xl md:text-3xl font-bold text-primary'>${type.price}</span>
+                    <span className='text-xl md:text-3xl font-bold text-primary'> <span className='text-sm'>PKR</span> {Number(type.price).toLocaleString()}</span>
                     <h2 className='font-heading font-semibold md:text-xl uppercase text-white tracking-widest'>
                         {type.type} Dining
                     </h2>
