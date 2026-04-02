@@ -32,7 +32,7 @@ const Drawer = () => {
                     <div className='flex items-center justify-between py-5 px-7'>
 
                         <Link href={'/'} className="logo">
-                            <img src="../assets/logo.png" alt="DMR SUSHI" className='w-12' />
+                            <img src="../assets/fuoco-logo.png" alt="Fuoco Logo" className='w-12' />
                         </Link>
 
                         <span onClick={toggleDrawer} className='text-primary'>

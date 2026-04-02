@@ -36,7 +36,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between py-4 px-7 lg:px-20 bg-transparent backdrop-blur-md fixed w-full max-w-384 z-100">
 
             <Link href={'/'} className="logo">
-                <img src="../assets/logo.png" alt="DMR SUSHI" className='w-12' />
+                <img src="../assets/fuoco-logo.png" alt="Fuoco Logo" className='w-12' />
             </Link>
 
             <ul className='flex gap-7 items-center justify-center font-heading text-lg text-white max-lg:hidden'>
