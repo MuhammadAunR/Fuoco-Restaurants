@@ -3,32 +3,33 @@ import React, { useState } from 'react'
 import { MapPin, Phone, Clock, ChevronDown, Minus, Plus, CheckCircle } from 'lucide-react'
 
 const diningTypes = [
-  { type: 'Fine', price: 500, desc: 'Elegant plating & curated sushi experience' },
-  { type: 'Gold', price: 1000, desc: 'Premium ingredients & personalized service' },
-  { type: 'Luxury', price: 1500, desc: 'Private dining with a dedicated chef' },
+  { type: 'Classic', price: '2,500', desc: 'An elegant Italian dining experience with curated seasonal dishes' },
+  { type: 'Premium', price: '5,000', desc: 'Premium European ingredients with personalized table service' },
+  { type: 'Luxury', price: '9,500', desc: 'Private dining with a dedicated chef and exclusive tasting menu' },
 ]
 
 const timeSlots = [
-  '10:00 - 10:30 AM', '10:30 - 11:00 AM',
-  '11:00 - 11:30 AM', '12:00 - 12:30 PM',
-  '06:00 - 06:30 PM', '07:00 - 07:30 PM',
-  '08:00 - 08:30 PM', '09:00 - 09:30 PM',
+  '01:00 - 01:30 PM', '01:30 - 02:00 PM',
+  '02:00 - 02:30 PM', '02:30 - 03:00 PM',
+  '07:00 - 07:30 PM', '07:30 - 08:00 PM',
+  '08:00 - 08:30 PM', '08:30 - 09:00 PM',
+  '09:00 - 09:30 PM', '09:30 - 10:00 PM',
 ]
 
 const inputClass = 'w-full bg-transparent border-b border-primary/30 focus:border-primary outline-none px-0 py-2.5 text-white/80 text-sm transition-colors duration-200 placeholder:text-white/30'
 const labelClass = 'text-white/50 text-xs uppercase tracking-widest font-heading'
 
 export default function ReservationForm() {
-  const [form, setForm] = useState(
-    {
-      fullName: '',
-      phone: '',
-      email: '',
-      date: '',
-      time: '',
-      people: 2,
-      diningType: '',
-    })
+  const [form, setForm] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    date: '',
+    time: '',
+    people: 2,
+    diningType: '',
+    branch: '',
+  })
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState({})
 
@@ -48,6 +49,7 @@ export default function ReservationForm() {
     if (!form.phone.trim()) e.phone = 'Required'
     if (!form.date) e.date = 'Required'
     if (!form.time) e.time = 'Required'
+    if (!form.branch) e.branch = 'Please select a branch'
     if (!form.diningType) e.diningType = 'Please select a dining type'
     return e
   }
@@ -78,15 +80,16 @@ export default function ReservationForm() {
             <span className='h-px w-12 bg-primary/40'></span>
           </div>
           <p className='text-white/60 leading-7'>
-            We have received your reservation for <span className='text-primary'>{form.people} guest{form.people > 1 ? 's' : ''}</span> on <span className='text-primary'>{form.date}</span> at <span className='text-primary'>{form.time}</span>. We look forward to welcoming you.
+            We have received your reservation for <span className='text-primary'>{form.people} guest{form.people > 1 ? 's' : ''}</span> on <span className='text-primary'>{form.date}</span> at <span className='text-primary'>{form.time}</span>. We look forward to welcoming you to Fuòco.
           </p>
           <div className='border border-primary/20 p-5 w-full text-left flex flex-col gap-2'>
             <p className='text-white/40 text-xs uppercase tracking-widest font-heading mb-1'>Booking Summary</p>
             {[
               ['Name', form.fullName],
               ['Phone', form.phone],
-              ['Dining', `${form.diningType} — $${diningTypes.find(d => d.type === form.diningType)?.price}`],
-              ['People', form.people],
+              ['Branch', form.branch],
+              ['Dining', `${form.diningType} — PKR ${diningTypes.find(d => d.type === form.diningType)?.price}`],
+              ['Guests', form.people],
             ].map(([k, v]) => (
               <div key={k} className='flex justify-between text-sm'>
                 <span className='text-white/40'>{k}</span>
@@ -95,7 +98,7 @@ export default function ReservationForm() {
             ))}
           </div>
           <button
-            onClick={() => { setSubmitted(false); setForm({ fullName: '', phone: '', email: '', date: '', time: '', people: 2, diningType: '' }) }}
+            onClick={() => { setSubmitted(false); setForm({ fullName: '', phone: '', email: '', date: '', time: '', people: 2, diningType: '', branch: '' }) }}
             className='text-primary text-sm uppercase tracking-widest border-b border-primary/40 hover:border-primary transition-colors duration-200'
           >
             Make Another Reservation
@@ -116,7 +119,7 @@ export default function ReservationForm() {
           <div className='flex flex-col gap-3'>
             <span className='font-stylish text-2xl text-primary'>Welcome to</span>
             <h1 className='font-heading text-4xl xl:text-5xl font-bold uppercase tracking-widest text-primary-light'>
-              DMR Sushi
+              Fuòco
             </h1>
             <div className='flex items-center gap-3 mt-1'>
               <span className='h-px w-12 bg-primary/40'></span>
@@ -124,16 +127,17 @@ export default function ReservationForm() {
               <span className='h-px w-12 bg-primary/40'></span>
             </div>
             <p className='text-white/50 leading-7 mt-2 text-sm'>
-              Reserve your table at DMR Sushi and experience the finest Japanese cuisine in the heart of Europe. Every seat is a front row to culinary artistry.
+              Reserve your table at Fuòco and experience contemporary European and Italian fine dining at its finest. Every seat is an invitation to an unforgettable culinary journey across our Lahore and Islamabad restaurants.
             </p>
           </div>
 
           {/* Info Cards */}
           <div className='flex flex-col gap-4'>
             {[
-              { icon: <MapPin size={18} />, label: 'Location', value: '123 Old Town Street, Vienna, Austria' },
-              { icon: <Phone size={18} />, label: 'Phone', value: '+43 1 234 5678' },
-              { icon: <Clock size={18} />, label: 'Hours', value: 'Mon – Sun: 12:00 PM – 11:00 PM' },
+              { icon: <MapPin size={18} />, label: 'Lahore', value: 'Gulberg II, Lahore' },
+              { icon: <MapPin size={18} />, label: 'Islamabad', value: 'F-6 Markaz, Islamabad' },
+              { icon: <Phone size={18} />, label: 'Reservations', value: 'Lahore: 0305-2101111  ·  Islamabad: 0302-6333367' },
+              { icon: <Clock size={18} />, label: 'Hours', value: 'Lahore: 1PM – 12AM  ·  Islamabad: 1PM – 1AM' },
             ].map(({ icon, label, value }) => (
               <div key={label} className='flex items-start gap-4 border border-primary/15 p-4 hover:border-primary/40 transition-colors duration-300'>
                 <span className='text-primary mt-0.5 shrink-0'>{icon}</span>
@@ -162,7 +166,7 @@ export default function ReservationForm() {
                     <span className={`font-heading font-semibold uppercase tracking-wider text-sm ${form.diningType === type ? 'text-primary' : 'text-white/70'}`}>
                       {type} Dining
                     </span>
-                    <span className='text-primary font-heading font-bold'>${price}</span>
+                    <span className='text-primary font-heading font-bold'>PKR {price}</span>
                   </div>
                   <p className='text-white/40 text-xs mt-1'>{desc}</p>
                 </button>
@@ -185,21 +189,21 @@ export default function ReservationForm() {
           {/* Full Name */}
           <div className='flex flex-col gap-1.5'>
             <label className={labelClass}>Full Name <span className='text-primary'>*</span></label>
-            <input type='text' name='fullName' value={form.fullName} onChange={handleChange} placeholder='John Doe' className={inputClass} />
+            <input type='text' name='fullName' value={form.fullName} onChange={handleChange} placeholder='Ahmed Khan' className={inputClass} />
             {errors.fullName && <p className='text-red-400 text-xs'>{errors.fullName}</p>}
           </div>
 
           {/* Phone */}
           <div className='flex flex-col gap-1.5'>
             <label className={labelClass}>Phone Number <span className='text-primary'>*</span></label>
-            <input type='tel' name='phone' value={form.phone} onChange={handleChange} placeholder='+1 234 567 890' className={inputClass} />
+            <input type='tel' name='phone' value={form.phone} onChange={handleChange} placeholder='+92 300 0000000' className={inputClass} />
             {errors.phone && <p className='text-red-400 text-xs'>{errors.phone}</p>}
           </div>
 
           {/* Email */}
           <div className='flex flex-col gap-1.5'>
             <label className={labelClass}>Email</label>
-            <input type='email' name='email' value={form.email} onChange={handleChange} placeholder='john@example.com' className={inputClass} />
+            <input type='email' name='email' value={form.email} onChange={handleChange} placeholder='ahmed@example.com' className={inputClass} />
           </div>
 
           {/* Date & Time — side by side */}
@@ -241,12 +245,30 @@ export default function ReservationForm() {
             </div>
           </div>
 
-         
+          {/* Branch Selector */}
+          <div className='flex flex-col gap-2'>
+            <label className={labelClass}>Preferred Branch <span className='text-primary'>*</span></label>
+            <div className='relative'>
+              <select
+                name='branch' value={form.branch}
+                onChange={(e) => { handleChange(e); setErrors(prev => ({ ...prev, branch: '' })) }}
+                className={`${inputClass} appearance-none cursor-pointer pr-6`}
+              >
+                <option value='' disabled className='bg-mist-800'>Select Branch</option>
+                <option value='Lahore — Gulberg II' className='bg-mist-800'>Lahore — Gulberg II</option>
+                <option value='Islamabad — F-6 Markaz' className='bg-mist-800'>Islamabad — F-6 Markaz</option>
+              </select>
+              <ChevronDown size={14} className='absolute right-0 top-3 text-white/40 pointer-events-none' />
+            </div>
+            {errors.branch && <p className='text-red-400 text-xs'>{errors.branch}</p>}
+          </div>
 
-          {/* Branch */}
-          <div className='flex items-center gap-3 border-t border-primary/10 pt-15'>
+          {/* Branch Info */}
+          <div className='flex items-center gap-3 border-t border-primary/10 pt-5'>
             <MapPin size={14} className='text-primary shrink-0' />
-            <span className='text-white/40 text-xs uppercase tracking-widest'>Branch — DMR Sushi Main, Vienna</span>
+            <span className='text-white/40 text-xs uppercase tracking-widest'>
+              {form.branch ? form.branch : 'Lahore & Islamabad — Pakistan'}
+            </span>
           </div>
 
           {/* Submit */}

@@ -26,16 +26,16 @@ const FooterSection = () => {
                 <div className='relative z-10 flex flex-col items-center gap-7 justify-center h-full text-white/80'>
 
                     <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold uppercase text-center text-primary-light'>
-                        We ready to have you <br />
-                        the best dining experiences
+                        Reserve Your Table <br />
+                        for an Unforgettable Evening
                     </h1>
 
                     <span onClick={GoToReservationPage} className='py-4'>
                         <ButtonUi text={'Reserve a table'} />
                     </span>
 
-                    <Link data-aos='zoom-in' href={'/'} className="logo">
-                        <img src="../assets/logo.png" alt="DMR SUSHI" className='w-12' />
+                    <Link href={'/'} className="logo">
+                        <img src="../assets/fuoco-logo.png" alt="Fuoco Logo" className='w-12' />
                     </Link>
 
                     <div className='flex items-center justify-center gap-4 px-5 flex-wrap'>
@@ -56,19 +56,19 @@ const FooterSection = () => {
                     <div className='flex items-center justify-center gap-x-10 gap-y-3 px-5 flex-wrap'>
                         <div className='flex items-center justify-center gap-4 text-primary'>
                             <span><Map /></span>
-                            <p className=''>123 Old Town Street, Vienna, Austria</p>
+                            <p className=''>Gulberg II, Lahore / F-6 Markaz, Islamabad</p>
                         </div>
                         <div className='flex items-center justify-center gap-4 text-primary'>
                             <span><Phone /></span>
-                            <p>+43 1 234 5678</p>
+                            <p>0305-2101111 / 0302-6333367</p>
                         </div>
                     </div>
 
-                <footer className='mt-10 w-full border-t border-primary/10 py-8 px-6 text-center bg-linear-to-r from-primary-dark/30 to-primary-light/30'>
-                    <p className='text-white max-md:text-sm uppercase tracking-widest font-heading'>
-                        &copy; All Right Reserved  - M Aun R - 2012
-                    </p>
-                </footer>
+                    <footer className='mt-10 w-full border-t border-primary/10 py-8 px-6 text-center bg-linear-to-r from-primary-dark/30 to-primary-light/30'>
+                        <p className='text-white max-md:text-sm uppercase tracking-widest font-heading'>
+                            &copy; {new Date().getFullYear()} Fuòco Restaurants · All Rights Reserved · Lahore & Islamabad
+                        </p>
+                    </footer>
                 </div>
             </section>
         </>
