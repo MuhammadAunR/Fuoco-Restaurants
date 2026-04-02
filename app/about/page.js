@@ -1,10 +1,10 @@
 import React from 'react'
 
 const stats = [
-  { value: "12+", label: "Years of Mastery" },
-  { value: "340+", label: "Signature Dishes" },
-  { value: "18K+", label: "Happy Guests" },
-  { value: "6", label: "Award Wins" },
+  { value: "14+", label: "Years of Fine Dining" },
+  { value: "85K+", label: "Instagram Followers" },
+  { value: "2", label: "Cities in Pakistan" },
+  { value: "4.5★", label: "TripAdvisor Rating" },
 ]
 
 const page = () => {
@@ -26,11 +26,11 @@ const page = () => {
             <span data-aos='fade-left' className='h-px w-12 bg-primary/50'></span>
           </div>
 
-          <h1 data-aos='fade-up' className='font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-widest text-primarylight) mt-2'>
+          <h1 data-aos='fade-up' className='font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-widest text-primary-light mt-2'>
             Our Story
           </h1>
           <p data-aos='fade-up' className='text-white/50 text-xs sm:text-sm tracking-widest uppercase'>
-            A journey of craft, passion & luxury
+            A journey of contemporary cuisine, passion & fine dining
           </p>
         </div>
 
@@ -67,7 +67,7 @@ const page = () => {
               </div>
 
               <div data-aos='zoom-in' className='absolute bottom-0 left-0 bg-mist-800 border border-primary/30 px-4 sm:px-6 py-3 sm:py-4'>
-                <p className='font-stylish text-primary text-base sm:text-lg'>Since 2012</p>
+                <p className='font-stylish text-primary text-base sm:text-lg'>Since 2011</p>
                 <p className='text-white/60 text-xs uppercase tracking-widest mt-1'>Serving Excellence</p>
               </div>
 
@@ -77,20 +77,13 @@ const page = () => {
 
               <div data-aos='fade-left' className='flex flex-col gap-4 lg:gap-5'>
                 <p className='text-white/75 leading-7 lg:leading-8 text-sm sm:text-base'>
-                  At <span className='text-primary font-semibold'>DMR Sushi</span>, our story began
-                  with a single passion — to bring the art of authentic Japanese sushi to the heart of Europe.
-                  Founded by Chef Damir, a culinary master trained in the streets of Tokyo and the fine dining
-                  rooms of Paris, our restaurant was built on the belief that food is not just nourishment —
-                  it is an experience, a memory, a moment shared.
+                  At <span className='text-primary font-semibold'>Fuòco</span>, our story began with a single vision — to bring the art of contemporary European and Italian cuisine to Pakistan. Founded by two brothers who share an obsession with exceptional food, <span className='text-primary font-semibold'>Fuòco</span> was built on the belief that dining is not just nourishment — it is an experience, a memory, a moment worth savouring.
                 </p>
                 <p className='text-white/75 leading-7 lg:leading-8 text-sm sm:text-base'>
-                  Every roll we craft carries decades of culinary wisdom and an obsession with quality. We
-                  source only the freshest ingredients — from wild-caught salmon flown in weekly to hand-picked
-                  seasonal vegetables — because our guests deserve nothing less than perfection on every plate.
+                  Every dish we craft carries a deep respect for culinary tradition and an uncompromising commitment to quality. We source only the finest ingredients — from hand-selected Italian imports to the freshest local produce — because our guests deserve nothing less than perfection on every plate.
                 </p>
                 <p className='text-white/75 leading-7 lg:leading-8 text-sm sm:text-base'>
-                  We are not just a restaurant. We are a destination for those who appreciate the finer things
-                  in life — where every visit feels personal, refined, and truly unforgettable.
+                  We are not just a restaurant. We are a destination for those who appreciate the finer things in life. From our first table in Islamabad to our Lahore dining room, every visit to <span className='text-primary font-semibold'>Fuòco</span> is designed to feel personal, refined, and truly unforgettable.
                 </p>
               </div>
 
@@ -119,12 +112,11 @@ const page = () => {
           <div className='max-w-3xl mx-auto text-center flex flex-col items-center gap-4'>
             <span className='text-primary text-4xl lg:text-5xl font-stylish leading-none'>"</span>
             <p className='font-heading text-base sm:text-lg lg:text-xl italic text-white/80 leading-8 lg:leading-9'>
-              Sushi is not just food — it is the story of the sea, the rice fields, and the hands
-              that bring them together with love and precision.
+              Fine dining is not just food — it is the story of the land, the harvest, and the hands that transform the finest ingredients into moments worth remembering.
             </p>
             <div className='flex items-center gap-3 mt-2'>
               <span className='h-px w-8 bg-primary/50'></span>
-              <span className='text-primary text-xs sm:text-sm uppercase tracking-widest'>Chef Damir</span>
+              <span className='text-primary text-xs sm:text-sm uppercase tracking-widest'>Fuòco Kitchen</span>
               <span className='h-px w-8 bg-primary/50'></span>
             </div>
           </div>
