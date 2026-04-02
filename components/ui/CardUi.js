@@ -1,6 +1,9 @@
 'use client'
 import React from 'react'
 import ButtonUi from './ButtonUi'
+import { Minus, Plus, Trash2 } from 'lucide-react'
+import { useCart } from '@/app/context/CartContext'
+import { useRouter } from 'next/navigation'
 
 const SpecialCard = ({ item }) => {
     const router = useRouter()
@@ -83,9 +86,7 @@ export const DiningEventCard = ({ type, index }) => {
     )
 }
 
-import { Minus, Plus, Trash2 } from 'lucide-react'
-import { useCart } from '@/app/context/CartContext'
-import { useRouter } from 'next/navigation'
+
 
 const CartItemCard = ({ item }) => {
     const { removeFromCart, increaseQty, decreaseQty } = useCart()
@@ -121,7 +122,7 @@ const CartItemCard = ({ item }) => {
 
                     <span className='font-heading text-sm font-semibold text-primary'>
 
-                       <span className='text-xs'>PKR</span>  {(item.price * item.qty).toLocaleString()}
+                        <span className='text-xs'>PKR</span>  {(item.price * item.qty).toLocaleString()}
                     </span>
                 </div>
             </div>
@@ -138,3 +139,63 @@ const CartItemCard = ({ item }) => {
 }
 
 export { CartItemCard }
+
+
+
+
+// ── Spice Dots ──────────────────────────────────────
+const SpiceDots = ({ level }) => (
+    <div className='flex gap-1'>
+        {[1, 2, 3].map(i => (
+            <div
+                key={i}
+                className={`w-1.5 h-1.5 rounded-full ${i <= level ? 'bg-primary opacity-100' : 'bg-primary opacity-20'}`}
+            />
+        ))}
+    </div>
+)
+
+const MenuCard = ({ item }) => {
+
+    const { addToCart } = useCart()
+
+    return (
+        <div data-aos='zoom-in' className='w-full max-w-[320px] relative flex flex-col overflow-hidden cursor-pointer border border-primary/20 hover:border-primary/50 transition-all duration-300 group bg-mist-800'>
+
+            <div className='relative overflow-hidden bg-mist-900 shrink-0 h-48'>
+                <img
+                    src={item.src} alt={item.name}
+                    className='w-full h-full object-cover brightness-85 saturate-90 group-hover:scale-105 transition-transform duration-700'
+                />
+                <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300' />
+                <button onClick={() => addToCart(item)} className='absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-primary hover:bg-primary-light text-black text-xs font-semibold tracking-widest uppercase px-3 py-1.5 border-none cursor-pointer'>
+                    Order Now
+                </button>
+            </div>
+
+            <div className='flex flex-col gap-3 p-5 flex-1'>
+                <div className='flex items-start justify-between gap-3'>
+                    <span style={{ fontFamily: 'serif' }} className='text-lg font-semibold text-primary-light leading-tight tracking-wide'>
+                        {item.name}
+                    </span>
+                    <div className='flex-1 self-center border-b border-dotted border-primary/20 mx-2' />
+                    <span style={{ fontFamily: 'serif' }} className='text-lg font-semibold text-primary whitespace-nowrap shrink-0'>
+                        <span className='text-sm'>PKR</span> {Number(item.price).toLocaleString()}
+                    </span>
+                </div>
+
+                <p className='text-xs tracking-widest uppercase text-white/40'>{item.ingredients}</p>
+                <p className='text-sm text-white/55 leading-relaxed flex-1'>{item.desc}</p>
+
+                <div className='flex items-center justify-between pt-3 border-t border-primary/10 mt-auto'>
+                    <SpiceDots level={item.spice} />
+                    <span className='text-xs tracking-widest uppercase text-primary border border-primary/20 px-2 py-0.5'>
+                        {item.tag}
+                    </span>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export { MenuCard }

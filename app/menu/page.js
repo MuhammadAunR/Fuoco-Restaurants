@@ -2,6 +2,7 @@
 import { menuData } from '@/components/Assets'
 import { useState } from 'react'
 import { useCart } from '../context/CartContext'
+import { MenuCard } from '@/components/ui/CardUi'
 
 const tabs = [
     { id: 'all', label: 'All' },
@@ -9,61 +10,6 @@ const tabs = [
     { id: 'european', label: 'European' },
 ]
 
-// ── Spice Dots ──────────────────────────────────────
-const SpiceDots = ({ level }) => (
-    <div className='flex gap-1'>
-        {[1, 2, 3].map(i => (
-            <div
-                key={i}
-                className={`w-1.5 h-1.5 rounded-full ${i <= level ? 'bg-primary opacity-100' : 'bg-primary opacity-20'}`}
-            />
-        ))}
-    </div>
-)
-
-// ── Menu Item Card ──────────────────────────────────
-const MenuCard = ({ item, featured = false }) => {
-
-    const { addToCart } = useCart()
-
-    return (
-        <div data-aos='zoom-in' className={`relative flex overflow-hidden cursor-pointer border border-primary/20 hover:border-primary/50 transition-all duration-300 group bg-mist-800 ${featured ? 'flex-col sm:items-center sm:flex-row col-span-full' : 'flex-col'}`}>
-
-            <div className={`relative overflow-hidden bg-mist-900 shrink-0 ${featured ? 'h-52 sm:h-auto sm:w-80' : 'h-48'}`}>
-                <img
-                    src={item.src} alt={item.name}
-                    className='w-full h-full object-cover brightness-85 saturate-90 group-hover:scale-105 transition-transform duration-700'
-                />
-                <div className='absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300' />
-                <button onClick={() => addToCart(item)} className='absolute bottom-3 right-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-primary hover:bg-primary-light text-black text-xs font-semibold tracking-widest uppercase px-3 py-1.5 border-none cursor-pointer'>
-                    Order Now
-                </button>
-            </div>
-
-            <div className='flex flex-col gap-3 p-5 flex-1'>
-                <div className='flex items-start justify-between gap-3'>
-                    <span className='font-heading text-lg font-semibold text-primary-light leading-tight tracking-wide'>
-                        {item.name}
-                    </span>
-                    <div className='flex-1 self-center border-b border-dotted border-primary/20 mx-2' />
-                    <span className='font-heading text-lg font-semibold text-primary whitespace-nowrap shrink-0'>
-                        <span className='text-sm'>PKR</span> {Number(item.price).toLocaleString()}
-                    </span>
-                </div>
-
-                <p className='text-xs tracking-widest uppercase text-white/40'>{item.ingredients}</p>
-                <p className='text-sm text-white/55 leading-relaxed flex-1'>{item.desc}</p>
-
-                <div className='flex items-center justify-between pt-3 border-t border-primary/10 mt-auto'>
-                    <SpiceDots level={item.spice} />
-                    <span className='text-xs tracking-widest uppercase text-primary border border-primary/20 px-2 py-0.5'>
-                        {item.tag}
-                    </span>
-                </div>
-            </div>
-        </div>
-    )
-}
 
 // ── Category Section ────────────────────────────────
 const CategorySection = ({ cat }) => (
@@ -81,7 +27,7 @@ const CategorySection = ({ cat }) => (
             <div className='flex-1 h-px' style={{ background: 'linear-gradient(to right, rgba(245,190,50,0.18), transparent)' }} />
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0.5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0.5 place-self-center'>
             {cat.items.map((item) => (
                 <MenuCard key={item.name} item={item} featured={item.featured} />
             ))}

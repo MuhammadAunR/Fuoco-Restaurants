@@ -1,6 +1,6 @@
 import React from 'react'
-import SpecialCard from './ui/CardUi'
-import { sushiFood } from './Assets'
+import SpecialCard, { MenuCard } from './ui/CardUi'
+import { menuData, sushiFood } from './Assets'
 
 const SpecialSection = () => {
     return (
@@ -16,9 +16,9 @@ const SpecialSection = () => {
                     Our chef curates a refined selection of dishes each day, <br /> highlighting the finest seasonal ingredients from our Italian and European kitchen.
                 </p>
 
-                <div className='flex items-center justify-center gap-5 px-5 flex-wrap'>
-                    {sushiFood.slice(0, 3).map(item => {
-                        return <SpecialCard key={item.name} item={item} />
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 px-5 items-stretch'>
+                    {menuData[0].items.slice(1,4).map(item => {
+                        return <MenuCard key={item.name} item={item} featured={item.featured} />
                     })}
                 </div>
             </div>
