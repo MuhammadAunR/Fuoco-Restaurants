@@ -92,7 +92,7 @@ export default function MenuPage() {
             <div className='relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-14'>
 
                 {visibleCategories.map((cat, i) => (
-                    <div data-aos='fade-right' key={cat.id}>
+                    <div data-aos='fade-up' key={cat.id}>
                         <CategorySection cat={cat} />
 
                         {i === 0 && activeTab === 'all' && (

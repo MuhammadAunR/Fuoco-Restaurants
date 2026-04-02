@@ -23,9 +23,9 @@ const AboutSection = () => {
                     </p>
                 </div>
 
-                <section className='flex max-lg:flex-col items-center gap-10 mx-10 xl:mx-40 py-10'>
+                <section data-aos='fade-up' className='flex max-lg:flex-col items-center gap-10 mx-10 xl:mx-40 py-10'>
 
-                    <div data-aos='fade-right' className='flex shrink-0'>
+                    <div className='flex shrink-0'>
                         <img
                             src="../assets/chef-1.webp"
                             alt="Chef"
@@ -46,7 +46,7 @@ const AboutSection = () => {
 
                     </div>
 
-                    <div data-aos='fade-left' className='flex flex-col items-start gap-6 text-white/80 lg:w-1/2'>
+                    <div className='flex flex-col items-start gap-6 text-white/80 lg:w-1/2'>
                         <p className='text-white/80 leading-relaxed'>
                             At <span className='text-primary font-semibold'>Fuòco</span>, our story began with a single vision — to bring the art of contemporary European and Italian cuisine to Pakistan. Founded by two brothers who share an obsession with exceptional food, <span className='text-primary font-semibold'>Fuòco</span> was built on the belief that dining is not just nourishment — it is an experience, a memory, a moment worth savouring.
                         </p>

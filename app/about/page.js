@@ -75,7 +75,7 @@ const page = () => {
 
             <div className='flex flex-col gap-6 lg:gap-8'>
 
-              <div data-aos='fade-left' className='flex flex-col gap-4 lg:gap-5'>
+              <div data-aos='fade-up' className='flex flex-col gap-4 lg:gap-5'>
                 <p className='text-white/75 leading-7 lg:leading-8 text-sm sm:text-base'>
                   At <span className='text-primary font-semibold'>Fuòco</span>, our story began with a single vision — to bring the art of contemporary European and Italian cuisine to Pakistan. Founded by two brothers who share an obsession with exceptional food, <span className='text-primary font-semibold'>Fuòco</span> was built on the belief that dining is not just nourishment — it is an experience, a memory, a moment worth savouring.
                 </p>
