@@ -57,7 +57,7 @@ const HeroSection = () => {
             </div>
 
             {scrollToTopBtn && <div>
-                <button onClick={handleScrollToTop} className='fixed bottom-7 right-7 z-200 flex flex-col gap-5 overflow-hidden bg-primary-light hover:bg-primary p-2 rounded-full cursor-pointer w-10 h-10 hover:h-35 transition-all duration-300 ease-in-out group'>
+                <button onClick={handleScrollToTop} className='fixed bottom-7 right-7 z-100 flex flex-col gap-5 overflow-hidden bg-primary-light hover:bg-primary p-2 rounded-full cursor-pointer w-10 h-10 hover:h-35 transition-all duration-300 ease-in-out group'>
                     <span className='shrink-0'>
                         <ArrowUpFromDot />
                     </span>
