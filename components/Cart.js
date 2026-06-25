@@ -4,13 +4,13 @@ import { ShoppingBasket, X } from 'lucide-react'
 import React from 'react'
 import ButtonUi from './ui/ButtonUi'
 import { CartItemCard } from './ui/CardUi'
-
-
-
+import BlockYScroll from './BlockYScroll'
 
 const Cart = () => {
 
     const { toggleCart, isCartOpen, cartItems, cartTotal, handleCheckOut } = useCart()
+
+    BlockYScroll(isCartOpen)
 
     return (
 

@@ -3,10 +3,13 @@ import { useDrawer } from '@/app/context/DrawerContext'
 import { PanelTopClose } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import BlockYScroll from './BlockYScroll'
 
 const Drawer = () => {
 
     const { toggleDrawer, isDrawerOpen } = useDrawer()
+
+    BlockYScroll(isDrawerOpen)
 
     const navLinks = [
         { name: "Home", href: "/" },
@@ -23,7 +26,7 @@ const Drawer = () => {
 
                 {isDrawerOpen && <section
                     onClick={toggleDrawer}
-                    className={`bg-black/40 backdrop-blur-md h-screen w-full fixed top-0 z-101`}>
+                    className={`bg-black/40 backdrop-blur-md h-screen w-full fixed top-0 z-100`}>
                 </section>
                 }
 
